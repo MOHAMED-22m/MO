@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MO</title> 
+    <title>MO</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -11,29 +11,27 @@
 
     <!-- الشريط العلوي -->
     <header>
-        <div class="logo">#MO#</div> 
-        <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+        <div class="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
+        <div class="menu-icon" onclick="toggleSidebar()">☰</div>
     </header>
 
     <!-- الشريط الجانبي -->
     <div id="sidebar" class="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">×</button>
-        <button class="login-btn" onclick="showLoginMessage()">Log In</button>
+        <div class="login-box">
+            <button class="login-btn" onclick="showLoginMessage()">Log in</button>
+        </div>
     </div>
 
-    <!-- محتوى الصفحة الرئيسية -->
+    <!-- المحتوى الرئيسي -->
     <main>
-        <div class="dynamic-box">
-            <h1>أهلاً بك في عالمك</h1>
-        </div>
+        <div class="welcome-box">أهلا بك في عالمك</div>
     </main>
 
-    <!-- زر الرجوع -->
-    <button class="back-btn" onclick="goBack()">الرجوع إلى الصفحة الرئيسية</button>
-
-    <!-- مؤسس الموقع -->
+    <!-- اسم المطور مع الصورة -->
     <footer>
-        موسس الموقع: المطور / Mohamed Soliman
+        <p>مؤسس الموقع: المطور/ Mohamed Soliman</p>
+        <img src="profile.jpg" alt="Mohamed Soliman">
     </footer>
 
 </body>
