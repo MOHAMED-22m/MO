@@ -1,0 +1,125 @@
+/* تعيين الخط الأساسي والخلفية الديناميكية */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(45deg, #2196F3, #E91E63, #FFEB3B, #4CAF50);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+/* تحريك الخلفية */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* الشريط العلوي */
+header {
+    background-color: #90EE90; /* لون أخضر فاتح */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+}
+
+/* الشعار */
+.logo {
+    font-weight: bold;
+    font-size: 22px;
+    color: black;
+}
+
+/* أيقونة القائمة */
+.menu-icon {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* الشريط الجانبي */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.login-btn:hover {
+    background-color: #218838;
+}
+
+/* مربع ديناميكي في الصفحة الرئيسية */
+.dynamic-box {
+    margin: 50px auto;
+    width: 250px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px solid white;
+    border-radius: 10px;
+    color: white;
+    animation: bounce 1.5s infinite alternate;
+}
+
+/* حركة ديناميكية */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* زر الرجوع */
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #e64a19;
+}
+
+/* مؤسس الموقع */
+footer {
+    margin-top: 50px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
