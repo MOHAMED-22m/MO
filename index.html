@@ -3,20 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي على GitHub</title>
+    <title>موقع المطور Mohamed Soliman</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+    <!-- الشريط العلوي -->
     <header>
-        <h1>مرحبًا بك في موقعي!</h1>
-        <p>هذا الموقع مرفوع على GitHub Pages</p>
+        <div class="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
+        <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
     </header>
 
-    <section>
-        <button onclick="showMessage()">اضغط هنا</button>
-        <p id="message"></p>
-    </section>
+    <!-- الشريط الجانبي -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <button class="login-btn" onclick="showLoginMessage()">Log In</button>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- محتوى الصفحة الرئيسية -->
+    <main>
+        <div class="dynamic-box">
+            <h1>أهلاً بك في عالمك</h1>
+        </div>
+    </main>
+
+    <!-- زر الرجوع -->
+    <button class="back-btn" onclick="goBack()">الرجوع إلى الصفحة الرئيسية</button>
+
+    <!-- مؤسس الموقع -->
+    <footer>
+        موسس الموقع: المطور / Mohamed Soliman
+    </footer>
+
 </body>
 </html>
