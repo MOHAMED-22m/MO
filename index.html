@@ -1,46 +1,41 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MO_star_672564</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MO</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- الهيدر -->
+  <header class="header">
+    <div class="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
+    <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+  </header>
 
-
-<img src="https://images.app.goo.gl/YEskVSrh7fnQbXGQA" alt="Mohamed Soliman">
-
-
-
-
-
-    
-    <!-- الشريط العلوي -->
-    <header>
-        <div class="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
-        <div class="menu-icon" onclick="toggleSidebar()">☰</div>
-    </header>
-
-    <!-- الشريط الجانبي -->
-    <div id="sidebar" class="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">×</button>
-        <div class="login-box">
-            <button class="login-btn" onclick="showLoginMessage()">Log in</button>
-        </div>
+  <!-- الشريط الجانبي -->
+  <aside id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <div class="sidebar-content">
+      <button class="login-btn" onclick="showLoginMessage()">Log In</button>
     </div>
+  </aside>
 
-    <!-- المحتوى الرئيسي -->
-    <main>
-        <div class="welcome-box">أهلا بك في عالمك</div>
-    </main>
+  <!-- المحتوى الرئيسي -->
+  <main class="main-content">
+    <div class="welcome-box">
+      <h1>أهلاً بك في عالمك</h1>
+    </div>
+  </main>
 
-    <!-- اسم المطور مع الصورة -->
-    <footer>
-        <p>مؤسس الموقع: المطور/ Mohamed Soliman</p>
-        <img src="profile.jpg" alt="Mohamed Soliman">
-    </footer>
-
+  <!-- الفوتر مع معلومات المطور وصورته -->
+  <footer class="footer">
+    <div class="developer-info">
+      <p>مؤسس الموقع: المطور / Mohamed Soliman</p>
+      <!-- غير اسم الملف (profile.jpg) إلى اسم الصورة التي تريد استخدامها -->
+      <img src="profile.jpg" alt="Mohamed Soliman" class="developer-img">
+    </div>
+  </footer>
 </body>
 </html>
