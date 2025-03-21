@@ -1,83 +1,151 @@
+/* تعيين إعدادات عامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, #74ebd5, #acb6e5);
-    text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: #333;
+  overflow-x: hidden;
 }
 
-/* الشريط العلوي */
-header {
-    background-color: #90EE90;
-    color: black;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    font-weight: bold;
+/* حركة الخلفية */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* أيقونة القائمة */
+/* الهيدر */
+.header {
+  background-color: #90EE90;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
 .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
 }
 
 /* الشريط الجانبي */
 .sidebar {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: black;
-    color: white;
-    transition: 0.3s;
-    padding-top: 60px;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #222;
+  color: #fff;
+  transition: right 0.4s ease;
+  padding-top: 60px;
+  z-index: 1000;
 }
 
-.sidebar .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
+.sidebar.active {
+  right: 0;
 }
 
-.login-box {
-    margin-top: 20px;
-    text-align: center;
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login-btn {
-    background: white;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+  background-color: #28a745;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #218838;
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px;
 }
 
 .welcome-box {
-    font-size: 24px;
-    font-weight: bold;
-    background: white;
-    display: inline-block;
-    padding: 20px;
-    margin-top: 50px;
-    transform: rotate(-3deg);
-    border-radius: 10px;
+  background: rgba(255,255,255,0.9);
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.welcome-box:hover {
+  transform: rotate(0deg);
+}
+
+.welcome-box h1 {
+  font-size: 36px;
+  font-weight: bold;
 }
 
 /* الفوتر */
-footer {
-    margin-top: 50px;
-    color: white;
+.footer {
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
 }
 
-footer img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-top: 10px;
+.developer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.developer-info p {
+  font-size: 18px;
+}
+
+.developer-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
 }
