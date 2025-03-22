@@ -18,8 +18,6 @@ header {
     font-size: 22px; transition: transform 0.3s;
 }
 
-#logo:hover { transform: scale(1.1); }
-
 #menu-btn {
     font-size: 24px; cursor: pointer; color: white;
 }
@@ -28,13 +26,13 @@ header {
     position: fixed; top: 0; right: -270px;
     width: 270px; height: 100%;
     background: #252545; padding-top: 60px;
-    transition: right 0.4s; box-shadow: -5px 0px 15px rgba(255, 204, 0, 0.3);
+    transition: right 0.4s;
 }
 
 .sidebar a {
     display: block; color: white;
     padding: 15px; text-decoration: none;
-    font-size: 18px; transition: 0.3s;
+    font-size: 18px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -46,32 +44,18 @@ header {
 }
 
 .login-popup {
-    display: none; position: fixed;
+    display: none;
+    position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(255, 204, 0, 0.9);
     color: black; padding: 20px;
-    border-radius: 10px;
     text-align: center;
 }
 
-.container {
-    margin-top: 80px; padding: 20px;
-    max-width: 800px; margin: auto;
-}
-
-.btn {
-    background: #ffcc00; color: black;
-    padding: 10px 20px; border: none;
-    cursor: pointer; transition: 0.3s;
-}
-
-.btn:hover { background: #f1b600; }
-
 .game-container {
     display: none;
-    width: 300px;
-    height: 300px;
+    width: 320px;
     margin: 20px auto;
 }
 
