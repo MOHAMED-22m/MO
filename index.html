@@ -44,26 +44,29 @@
             position: absolute; top: 10px; left: 20px;
             font-size: 30px; cursor: pointer; color: white;
         }
-        .login-popup {
+        .popup {
             display: none; position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             background: rgba(255, 204, 0, 0.9);
             color: black; padding: 20px;
             border-radius: 10px; box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.5);
-            text-align: right; width: 300px;
+            text-align: center; width: 320px;
         }
-        .login-popup input {
+        .popup input, .popup button {
             width: 100%; padding: 10px;
-            margin: 10px 0; border: 1px solid #1e1e2e;
+            margin: 10px 0; border: none;
             border-radius: 5px; background: white;
         }
-        .login-popup button {
-            width: 100%; padding: 10px;
-            background: #252545; color: white;
-            border: none; cursor: pointer; transition: 0.3s;
+        .popup button { background: #252545; color: white; cursor: pointer; }
+        .popup button:hover { background: #ffcc00; color: black; }
+        .game-popup {
+            display: none; position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: black; padding: 10px;
+            border-radius: 10px; text-align: center;
         }
-        .login-popup button:hover { background: #ffcc00; color: black; }
         footer {
             background: #2c2c3e; padding: 15px;
             position: fixed; bottom: 0; width: 100%;
@@ -72,20 +75,8 @@
         .glow {
             text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
         }
-        .container {
-            margin-top: 80px; padding: 20px;
-            max-width: 800px; margin: auto;
-        }
-        .btn {
-            background: #ffcc00; color: black;
-            padding: 10px 20px; border: none;
-            cursor: pointer; transition: 0.3s;
-        }
-        .btn:hover { background: #f1b600; }
-        .box {
-            background: #33334d; padding: 20px;
-            margin: 10px 0; border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        canvas {
+            background: #2c2c3e; display: block; margin: auto;
         }
     </style>
 </head>
@@ -94,49 +85,82 @@
         <div id="logo" class="glow">#MÖ.ŚŮĻÏMÄŅ#</div>
         <i id="menu-btn" class="fa-solid fa-ellipsis-vertical"></i>
     </header>
+    
     <div id="sidebar" class="sidebar">
         <span class="close-btn" onclick="closeMenu()">×</span>
         <a href="#" onclick="openLogin()">تسجيل الدخول</a>
-        <a href="#">صفحة الأدمن</a>
+        <a href="#" onclick="openGame()">الدخول للعب 🎮</a>
         <p style="color: #ffcc00; text-align: center; margin-top: 50px;">🚧 الموقع تحت التطوير 🚧</p>
     </div>
+
     <main class="container">
         <h2 class="glow">مرحبًا بك في موقعي الإبداعي</h2>
         <p>تصميم حديث، أنيق، وديناميكي مع تأثيرات بصرية مميزة!</p>
-        <div class="box">
-            <h3>معلومات عن الموقع</h3>
-            <p>هذا الموقع لا يزال قيد التطوير وسيتم تحديثه قريبًا بميزات جديدة.</p>
-        </div>
         <button class="btn" onclick="openLogin()">تجربة تسجيل الدخول</button>
     </main>
-    <div id="login-popup" class="login-popup">
+
+    <div id="login-popup" class="popup">
         <h3>تسجيل الدخول</h3>
         <input type="text" placeholder="اسم المستخدم" id="username">
         <input type="password" placeholder="كلمة المرور" id="password">
         <button onclick="checkLogin()">تسجيل الدخول</button>
     </div>
+
+    <div id="game-popup" class="game-popup">
+        <h3 style="color: white;">🐍 لعبة الثعبان 🐍</h3>
+        <canvas id="gameCanvas" width="300" height="300"></canvas>
+    </div>
+
     <footer>
         <p>المطور: Mohamed Soliman</p>
     </footer>
+
     <script>
         document.getElementById("menu-btn").addEventListener("click", function() {
             document.getElementById("sidebar").style.right = "0";
         });
+
         function closeMenu() {
             document.getElementById("sidebar").style.right = "-270px";
         }
+
         function openLogin() {
             document.getElementById("login-popup").style.display = "block";
         }
+
         function checkLogin() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            if (username && password) {
-                alert("🚧 لسه ما خلصتش الموقع! 🚧");
-                document.getElementById("login-popup").style.display = "none";
-            } else {
-                alert("يرجى إدخال اسم المستخدم وكلمة المرور!");
+            alert("🚧 لسه ما خلصتش الموقع! 🚧");
+            document.getElementById("login-popup").style.display = "none";
+        }
+
+        function openGame() {
+            document.getElementById("game-popup").style.display = "block";
+            startGame();
+        }
+
+        function startGame() {
+            var canvas = document.getElementById("gameCanvas");
+            var ctx = canvas.getContext("2d");
+            var snake = [{x: 150, y: 150}];
+            var direction = "right";
+            var food = {x: 100, y: 100};
+            
+            document.addEventListener("keydown", function(e) {
+                if (e.key === "ArrowRight") direction = "right";
+                if (e.key === "ArrowLeft") direction = "left";
+                if (e.key === "ArrowUp") direction = "up";
+                if (e.key === "ArrowDown") direction = "down";
+            });
+
+            function gameLoop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "green";
+                snake.forEach(s => ctx.fillRect(s.x, s.y, 10, 10));
+                ctx.fillStyle = "red";
+                ctx.fillRect(food.x, food.y, 10, 10);
+                requestAnimationFrame(gameLoop);
             }
+            gameLoop();
         }
     </script>
 </body>
