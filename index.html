@@ -1,167 +1,35 @@
-
-Mohamed Ahmed
-Mohamed Ahmed Atala
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MO</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      direction: rtl;
-    }
-    .header {
-      background: #333;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-    }
-    .header .logo {
-      font-size: 1.8em;
-    }
-    .header .three-dots {
-      font-size: 1.8em;
-      cursor: pointer;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background: #444;
-      color: #fff;
-      transition: left 0.3s ease;
-      padding: 20px;
-      overflow-y: auto;
-      z-index: 500;
-    }
-    .sidebar.active {
-      left: 0;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      align-items: center;
-      justify-content: center;
-    }
-    .modal.active {
-      display: flex;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      width: 300px;
-      text-align: center;
-      position: relative;
-    }
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 10px;
-      border-radius: 8px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      width: 300px;
-    }
-    .search-box input {
-      border: none;
-      padding: 10px;
-      width: 100%;
-      outline: none;
-      font-size: 16px;
-    }
-    .search-box button {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 5px;
-      margin-left: 10px;
-    }
-    .search-box button:hover {
-      background: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الشخصي</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header class="header">
-    <div class="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
-    <div class="three-dots" id="openSidebar">&#8942;</div>
-  </header>
+    <!-- الشعار -->
+    <header>
+        <h1 id="logo">#MÖ.ŚŮĻÏMÄŅ#</h1>
+    </header>
 
-  <nav class="sidebar" id="sidebar">
-    <span class="close-btn" id="closeSidebar">&times; إغلاق</span>
-    <p>هذا الموقع تحت التطوير</p>
-    <button class="login-btn" id="openLogin">تسجيل الدخول</button>
-  </nav>
-
-  <main class="content">
-    <h1>مرحبا بكم في عالم جديد</h1>
-    <p>المطور: محمد سليمان.</p>
-
-    <div class="search-box">
-      <input type="text" placeholder="ابحث هنا...">
-      <button>بحث</button>
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <h2>مرحبًا بك في موقعي!</h2>
+        <p>هذا هو موقعي الشخصي حيث أشارك أفكاري وأعمالي.</p>
+        
+        <img src="profile.jpg" alt="صورتي الشخصية">
+        
+        <button onclick="showMessage()">اضغط هنا</button>
+        
+        <p id="message"></p>
     </div>
-  </main>
 
-  <div class="modal" id="loginModal">
-    <div class="modal-content">
-      <h2>تسجيل الدخول</h2>
-      <p>الموقع تحت التجريب</p>
-      <input type="text" id="username" placeholder="ادخل اسم المستخدم">
-      <input type="password" id="password" placeholder="ادخل كلمة المرور">
-      <button id="loginButton">تسجيل الدخول</button>
-    </div>
-  </div>
+    <!-- الفوتر -->
+    <footer>
+        <p>المطور: mohamed Soliman</p>
+    </footer>
 
-  <footer class="developer">
-    <span>المطور: Mohamed Suleiman</span>
-  </footer>
-
-  <script>
-    const sidebar = document.getElementById('sidebar');
-    const openSidebar = document.getElementById('openSidebar');
-    const closeSidebar = document.getElementById('closeSidebar');
-    const loginModal = document.getElementById('loginModal');
-    const loginButton = document.getElementById('loginButton');
-
-    openSidebar.addEventListener('click', () => sidebar.classList.add('active'));
-    closeSidebar.addEventListener('click', () => sidebar.classList.remove('active'));
-
-    loginButton.addEventListener('click', () => {
-      alert('الرجاء إدخال اسم المستخدم وكلمة المرور.');
-      loginModal.classList.remove('active');
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === loginModal) {
-        loginModal.classList.remove('active');
-      }
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
