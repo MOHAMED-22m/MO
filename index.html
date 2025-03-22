@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MO</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الشخصي</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- الهيدر -->
-  <header class="header">
-    <div class="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
-    <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
-  </header>
 
-  <!-- الشريط الجانبي -->
-  <aside id="sidebar" class="sidebar">
-    <button class="close-btn" onclick="toggleSidebar()">×</button>
-    <div class="sidebar-content">
-      <button class="login-btn" onclick="showLoginMessage()">Log In</button>
-    </div>
-  </aside>
+    <!-- الشعار -->
+    <header>
+        <h1 id="logo">#MÖ.ŚŮĻÏMÄŅ#</h1>
+    </header>
 
-  <!-- المحتوى الرئيسي -->
-  <main class="main-content">
-    <div class="welcome-box">
-      <h1>أهلاً بك في عالمك</h1>
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <h2>مرحبًا بك في موقعي!</h2>
+        <p>هذا هو موقعي الشخصي حيث أشارك أفكاري وأعمالي.</p>
+        
+        <img src="profile.jpg" alt="صورتي الشخصية">
+        
+        <button onclick="showMessage()">اضغط هنا</button>
+        
+        <p id="message"></p>
     </div>
-  </main>
 
-  <!-- الفوتر مع معلومات المطور وصورته -->
-  <footer class="footer">
-    <div class="developer-info">
-      <p>مؤسس الموقع: المطور / Mohamed Soliman</p>
-      <!-- غير اسم الملف (profile.jpg) إلى اسم الصورة التي تريد استخدامها -->
-      <img src="profile.jpg" alt="Mohamed Soliman" class="developer-img">
-    </div>
-  </footer>
+    <!-- الفوتر -->
+    <footer>
+        <p>المطور: mohamed Soliman</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
