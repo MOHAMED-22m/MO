@@ -1,71 +1,78 @@
-/* إعادة تعيين الأنماط الافتراضية */
+/* إعدادات عامة */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* تنسيق عام للصفحة */
+/* تنسيق الجسم */
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
-  padding: 20px;
-  text-align: center;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
 }
 
-/* تصميم العنوان الرئيسي */
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #007bff;
+/* الشعار */
+header {
+    position: absolute;
+    top: 10px;
+    left: 20px;
 }
 
-/* تنسيق معلومات المؤسس */
-p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
+#logo {
+    font-size: 20px;
+    color: #007bff;
+    font-weight: bold;
 }
 
-/* تنسيق الصورة الشخصية */
+/* تنسيق المحتوى */
+.container {
+    max-width: 600px;
+    margin: 100px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
 img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid #007bff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px 0;
+    border: 3px solid #007bff;
 }
 
-/* تحسين الروابط عند التفاعل */
-a {
-  color: #007bff;
-  text-decoration: none;
-  transition: color 0.3s;
+/* الزر */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-a:hover {
-  color: #0056b3;
+button:hover {
+    background-color: #0056b3;
 }
 
-/* جعل التصميم متجاوبًا مع الهواتف المحمولة */
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  img {
-    width: 100px;
-    height: 100px;
-  }
+/* الرسالة */
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #28a745;
 }
 
-/* حاوية المحتوى الرئيسي */
-.main-content {
-  max-width: 800px;
-  margin: 0 auto;
+/* الفوتر */
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #666;
 }
