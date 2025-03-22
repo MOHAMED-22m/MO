@@ -1,6 +1,4 @@
-// التأكد من أن الكود يعمل بعد تحميل الصفحة بالكامل
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("myButton").addEventListener("click", function () {
-        document.getElementById("message").innerText = "شكرًا لزيارتك موقعي!";
-    });
-});
+// دالة تعرض رسالة عند الضغط على الزر
+function showMessage() {
+    document.getElementById("message").innerText = "شكرًا لزيارتك موقعي!";
+}
