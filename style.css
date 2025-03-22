@@ -1,60 +1,151 @@
-/* Glass effects */
-@utility glass-1 {
-  @apply border-border from-card/80 to-card/40 dark:border-border/10 dark:border-b-border/5 dark:border-t-border/20 dark:from-card/5 dark:to-card/0 border bg-linear-to-b;
-}
-@utility glass-2 {
-  @apply border-border from-card/100 to-card/80 dark:border-border/10 dark:border-b-border/5 dark:border-t-border/20 dark:from-card/10 dark:to-card/5 border bg-linear-to-b;
-}
-@utility glass-3 {
-  @apply border-border from-card/30 to-card/20 dark:border-border/10 dark:border-t-border/20 dark:border-b-border/5 dark:from-primary/5 dark:to-primary/2 border bg-linear-to-b;
-}
-@utility glass-4 {
-  @apply border-border border-b-input/90 from-card/60 to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/10 dark:to-primary/5 border bg-linear-to-b dark:border-b-0;
-}
-@utility glass-5 {
-  @apply border-border border-b-input from-card/100 to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/15 dark:to-primary/5 border bg-linear-to-b dark:border-b-0;
+/* تعيين إعدادات عامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Fade effects */
-@utility fade-x {
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 25%,
-    black 75%,
-    transparent 100%
-  );
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: #333;
+  overflow-x: hidden;
 }
-@utility fade-y {
-  mask-image: linear-gradient(
-    to top,
-    transparent 0%,
-    black 25%,
-    black 75%,
-    transparent 100%
-  );
+
+/* حركة الخلفية */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-@utility fade-top {
-  mask-image: linear-gradient(to bottom, transparent 0%, black 35%);
+
+/* الهيدر */
+.header {
+  background-color: #90EE90;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-@utility fade-bottom {
-  mask-image: linear-gradient(to top, transparent 0%, black 35%);
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
 }
-@utility fade-top-lg {
-  mask-image: linear-gradient(to bottom, transparent 15%, black 100%);
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
-@utility fade-bottom-lg {
-  mask-image: linear-gradient(to top, transparent 15%, black 100%);
+
+.menu-icon:hover {
+  transform: scale(1.1);
 }
-@utility fade-left {
-  mask-image: linear-gradient(to right, transparent 0%, black 35%);
+
+/* الشريط الجانبي */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #222;
+  color: #fff;
+  transition: right 0.4s ease;
+  padding-top: 60px;
+  z-index: 1000;
 }
-@utility fade-right {
-  mask-image: linear-gradient(to left, transparent 0%, black 35%);
+
+.sidebar.active {
+  right: 0;
 }
-@utility fade-left-lg {
-  mask-image: linear-gradient(to right, transparent 15%, black 100%);
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
-@utility fade-right-lg {
-  mask-image: linear-gradient(to left, transparent 15%, black 100%);
-  }
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-btn {
+  background-color: #28a745;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #218838;
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px;
+}
+
+.welcome-box {
+  background: rgba(255,255,255,0.9);
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.welcome-box:hover {
+  transform: rotate(0deg);
+}
+
+.welcome-box h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* الفوتر */
+.footer {
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.developer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.developer-info p {
+  font-size: 18px;
+}
+
+.developer-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
