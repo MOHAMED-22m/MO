@@ -1,7 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-let snake = [{x: 150, y: 150}];
+let snake = [{x: 140, y: 140}];
 let direction = "RIGHT";
 let food = { x: Math.floor(Math.random() * 15) * 20, y: Math.floor(Math.random() * 15) * 20 };
 
