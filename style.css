@@ -1,78 +1,82 @@
-/* إعدادات عامة */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-/* تنسيق الجسم */
 body {
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
+    font-family: "Tajawal", sans-serif;
+    margin: 0; padding: 0;
+    background: #1e1e2e; color: white;
+    text-align: center; direction: rtl;
 }
 
-/* الشعار */
 header {
-    position: absolute;
-    top: 10px;
-    left: 20px;
+    display: flex; justify-content: space-between;
+    align-items: center; background: #2c2c3e;
+    padding: 15px 20px; position: fixed;
+    width: 100%; top: 0; z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #logo {
-    font-size: 20px;
-    color: #007bff;
-    font-weight: bold;
+    font-weight: bold; color: #ffcc00;
+    font-size: 22px; transition: transform 0.3s;
 }
 
-/* تنسيق المحتوى */
+#logo:hover { transform: scale(1.1); }
+
+#menu-btn {
+    font-size: 24px; cursor: pointer; color: white;
+}
+
+.sidebar {
+    position: fixed; top: 0; right: -270px;
+    width: 270px; height: 100%;
+    background: #252545; padding-top: 60px;
+    transition: right 0.4s; box-shadow: -5px 0px 15px rgba(255, 204, 0, 0.3);
+}
+
+.sidebar a {
+    display: block; color: white;
+    padding: 15px; text-decoration: none;
+    font-size: 18px; transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar a:hover { background: #ffcc00; color: black; }
+
+.close-btn {
+    position: absolute; top: 10px; left: 20px;
+    font-size: 30px; cursor: pointer; color: white;
+}
+
+.login-popup {
+    display: none; position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 204, 0, 0.9);
+    color: black; padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .container {
-    max-width: 600px;
-    margin: 100px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; padding: 20px;
+    max-width: 800px; margin: auto;
 }
 
-h2 {
-    color: #333;
+.btn {
+    background: #ffcc00; color: black;
+    padding: 10px 20px; border: none;
+    cursor: pointer; transition: 0.3s;
 }
 
-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px 0;
-    border: 3px solid #007bff;
+.btn:hover { background: #f1b600; }
+
+.game-container {
+    display: none;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
 }
 
-/* الزر */
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* الرسالة */
-#message {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #28a745;
-}
-
-/* الفوتر */
-footer {
-    margin-top: 50px;
-    font-size: 14px;
-    color: #666;
+canvas {
+    background: black;
+    display: block;
+    margin: auto;
 }
