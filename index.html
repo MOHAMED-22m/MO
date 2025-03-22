@@ -31,7 +31,7 @@
             position: fixed; top: 0; right: -270px;
             width: 270px; height: 100%;
             background: #252545; padding-top: 60px;
-            transition: right 0.4s; box-shadow: -5px 0px 15px rgba(255, 255, 0, 0.3);
+            transition: right 0.4s; box-shadow: -5px 0px 15px rgba(255, 204, 0, 0.3);
         }
         .sidebar a {
             display: block; color: white;
@@ -44,73 +44,73 @@
             position: absolute; top: 10px; left: 20px;
             font-size: 30px; cursor: pointer; color: white;
         }
-        .popup {
+        .login-popup {
             display: none; position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             background: rgba(255, 204, 0, 0.9);
             color: black; padding: 20px;
             border-radius: 10px; box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.5);
-            text-align: center; width: 320px;
+            text-align: right; width: 300px;
         }
-        .popup input, .popup button {
+        .login-popup input {
             width: 100%; padding: 10px;
-            margin: 10px 0; border: none;
+            margin: 10px 0; border: 1px solid #1e1e2e;
             border-radius: 5px; background: white;
         }
-        .popup button { background: #252545; color: white; cursor: pointer; }
-        .popup button:hover { background: #ffcc00; color: black; }
-        .game-popup {
-            display: none; position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: black; padding: 10px;
-            border-radius: 10px; text-align: center;
+        .login-popup button {
+            width: 100%; padding: 10px;
+            background: #252545; color: white;
+            border: none; cursor: pointer; transition: 0.3s;
         }
+        .login-popup button:hover { background: #ffcc00; color: black; }
         footer {
             background: #2c2c3e; padding: 15px;
             position: fixed; bottom: 0; width: 100%;
             text-align: center; color: #ffcc00;
         }
-        .glow {
-            text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+        .container {
+            margin-top: 80px; padding: 20px;
+            max-width: 800px; margin: auto;
+        }
+        .btn {
+            background: #ffcc00; color: black;
+            padding: 10px 20px; border: none;
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn:hover { background: #f1b600; }
+        .game-container {
+            display: none;
+            width: 300px;
+            height: 300px;
+            background: black;
+            margin: 20px auto;
         }
         canvas {
-            background: #2c2c3e; display: block; margin: auto;
+            background: #333;
+            display: block;
+            margin: auto;
         }
     </style>
 </head>
 <body>
     <header>
-        <div id="logo" class="glow">#MÖ.ŚŮĻÏMÄŅ#</div>
+        <div id="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
         <i id="menu-btn" class="fa-solid fa-ellipsis-vertical"></i>
     </header>
-    
     <div id="sidebar" class="sidebar">
         <span class="close-btn" onclick="closeMenu()">×</span>
         <a href="#" onclick="openLogin()">تسجيل الدخول</a>
-        <a href="#" onclick="openGame()">الدخول للعب 🎮</a>
-        <p style="color: #ffcc00; text-align: center; margin-top: 50px;">🚧 الموقع تحت التطوير 🚧</p>
+        <a href="#" onclick="startGame()">الدخول للعب</a>
     </div>
-
     <main class="container">
-        <h2 class="glow">مرحبًا بك في موقعي الإبداعي</h2>
-        <p>تصميم حديث، أنيق، وديناميكي مع تأثيرات بصرية مميزة!</p>
+        <h2>مرحبًا بك في موقعي الإبداعي</h2>
         <button class="btn" onclick="openLogin()">تجربة تسجيل الدخول</button>
+        <button class="btn" onclick="startGame()">ابدأ اللعب</button>
     </main>
-
-    <div id="login-popup" class="popup">
-        <h3>تسجيل الدخول</h3>
-        <input type="text" placeholder="اسم المستخدم" id="username">
-        <input type="password" placeholder="كلمة المرور" id="password">
-        <button onclick="checkLogin()">تسجيل الدخول</button>
-    </div>
-
-    <div id="game-popup" class="game-popup">
-        <h3 style="color: white;">🐍 لعبة الثعبان 🐍</h3>
+    <div id="game-container" class="game-container">
         <canvas id="gameCanvas" width="300" height="300"></canvas>
     </div>
-
     <footer>
         <p>المطور: Mohamed Soliman</p>
     </footer>
@@ -119,49 +119,65 @@
         document.getElementById("menu-btn").addEventListener("click", function() {
             document.getElementById("sidebar").style.right = "0";
         });
-
         function closeMenu() {
             document.getElementById("sidebar").style.right = "-270px";
         }
-
         function openLogin() {
             document.getElementById("login-popup").style.display = "block";
         }
-
-        function checkLogin() {
-            alert("🚧 لسه ما خلصتش الموقع! 🚧");
-            document.getElementById("login-popup").style.display = "none";
-        }
-
-        function openGame() {
-            document.getElementById("game-popup").style.display = "block";
-            startGame();
-        }
-
         function startGame() {
-            var canvas = document.getElementById("gameCanvas");
-            var ctx = canvas.getContext("2d");
-            var snake = [{x: 150, y: 150}];
-            var direction = "right";
-            var food = {x: 100, y: 100};
-            
-            document.addEventListener("keydown", function(e) {
-                if (e.key === "ArrowRight") direction = "right";
-                if (e.key === "ArrowLeft") direction = "left";
-                if (e.key === "ArrowUp") direction = "up";
-                if (e.key === "ArrowDown") direction = "down";
-            });
-
-            function gameLoop() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = "green";
-                snake.forEach(s => ctx.fillRect(s.x, s.y, 10, 10));
-                ctx.fillStyle = "red";
-                ctx.fillRect(food.x, food.y, 10, 10);
-                requestAnimationFrame(gameLoop);
-            }
+            document.getElementById("game-container").style.display = "block";
             gameLoop();
         }
+        
+        // لعبة الثعبان
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let snake = [{x: 150, y: 150}];
+        let direction = "RIGHT";
+        let food = { x: Math.floor(Math.random() * 15) * 20, y: Math.floor(Math.random() * 15) * 20 };
+
+        function draw() {
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, 20, 20);
+
+            ctx.fillStyle = "lime";
+            snake.forEach(segment => ctx.fillRect(segment.x, segment.y, 20, 20));
+        }
+
+        function update() {
+            let head = { ...snake[0] };
+
+            if (direction === "UP") head.y -= 20;
+            if (direction === "DOWN") head.y += 20;
+            if (direction === "LEFT") head.x -= 20;
+            if (direction === "RIGHT") head.x += 20;
+
+            snake.unshift(head);
+
+            if (head.x === food.x && head.y === food.y) {
+                food = { x: Math.floor(Math.random() * 15) * 20, y: Math.floor(Math.random() * 15) * 20 };
+            } else {
+                snake.pop();
+            }
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            setTimeout(gameLoop, 100);
+        }
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "ArrowUp") direction = "UP";
+            if (event.key === "ArrowDown") direction = "DOWN";
+            if (event.key === "ArrowLeft") direction = "LEFT";
+            if (event.key === "ArrowRight") direction = "RIGHT";
+        });
     </script>
 </body>
 </html>
