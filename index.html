@@ -3,33 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الشخصي</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>موقعي الاحترافي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* إعدادات الخطوط والخلفية */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+        }
+
+        /* الهيدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* الشعار */
+        #logo {
+            font-weight: bold;
+            color: #ffcc00;
+            font-size: 22px;
+        }
+
+        /* صورة المطور */
+        #profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #ffcc00;
+        }
+
+        /* زر القائمة (ثلاث نقاط) */
+        #menu-btn {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* القائمة الجانبية */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+            transition: right 0.3s;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #ffcc00;
+            color: black;
+        }
+
+        /* زر إغلاق القائمة */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* الفوتر */
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* نافذة تسجيل الدخول */
+        .login-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-popup input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-popup button:hover {
+            background: #1e3c72;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- الشعار -->
+    <!-- الهيدر مع الشعار والصورة -->
     <header>
-        <h1 id="logo">#MÖ.ŚŮĻÏMÄŅ#</h1>
+        <div id="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
+        <img id="profile-pic" src="https://via.placeholder.com/40" alt="صورة المطور">
+        <i id="menu-btn" class="fa-solid fa-ellipsis-vertical"></i>
     </header>
 
+    <!-- القائمة الجانبية -->
+    <div id="sidebar" class="sidebar">
+        <span class="close-btn" onclick="closeMenu()">×</span>
+        <a href="#" onclick="openLogin()">Login</a>
+        <a href="#">صفحة الأدمن</a>
+        <p style="color: #ffcc00; text-align: center; margin-top: 50px;">🚧 الموقع تحت التطوير 🚧</p>
+    </div>
+
     <!-- المحتوى الرئيسي -->
-    <div class="container">
-        <h2>مرحبًا بك في موقعي!</h2>
-        <p>هذا هو موقعي الشخصي حيث أشارك أفكاري وأعمالي.</p>
-        
-        <img src="profile.jpg" alt="صورتي الشخصية">
-        
-        <button onclick="showMessage()">اضغط هنا</button>
-        
-        <p id="message"></p>
+    <main>
+        <h2>مرحبًا بك في موقعي الاحترافي</h2>
+        <p>هذا موقع بتصميم عصري واحترافي، يمكنك تطويره وإضافة مميزات رائعة!</p>
+    </main>
+
+    <!-- نافذة تسجيل الدخول -->
+    <div id="login-popup" class="login-popup">
+        <h3>تسجيل الدخول</h3>
+        <input type="text" placeholder="اسم المستخدم" id="username">
+        <input type="password" placeholder="كلمة المرور" id="password">
+        <button onclick="checkLogin()">تسجيل الدخول</button>
     </div>
 
     <!-- الفوتر -->
     <footer>
-        <p>المطور: mohamed Soliman</p>
+        <p>المطور: Mohamed Soliman</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // فتح القائمة الجانبية
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("sidebar").style.right = "0";
+        });
+
+        // إغلاق القائمة الجانبية
+        function closeMenu() {
+            document.getElementById("sidebar").style.right = "-250px";
+        }
+
+        // فتح نافذة تسجيل الدخول
+        function openLogin() {
+            document.getElementById("login-popup").style.display = "block";
+        }
+
+        // التحقق من تسجيل الدخول
+        function checkLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username && password) {
+                alert("🚧 لسه ما خلصتش الموقع! 🚧");
+                document.getElementById("login-popup").style.display = "none";
+            } else {
+                alert("يرجى إدخال اسم المستخدم وكلمة المرور!");
+            }
+        }
+    </script>
+
 </body>
-</html>
+            </html>
