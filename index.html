@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقعي الاحترافي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* إعدادات الخطوط والخلفية */
+        /* إعدادات الصفحة */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,6 +14,7 @@
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             text-align: center;
+            direction: rtl;
         }
 
         /* الهيدر */
@@ -21,12 +22,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             padding: 15px 20px;
             position: fixed;
             width: 100%;
             top: 0;
-            left: 0;
             z-index: 1000;
         }
 
@@ -37,15 +37,7 @@
             font-size: 22px;
         }
 
-        /* صورة المطور */
-        #profile-pic {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #ffcc00;
-        }
-
-        /* زر القائمة (ثلاث نقاط) */
+        /* زر القائمة */
         #menu-btn {
             font-size: 24px;
             cursor: pointer;
@@ -77,22 +69,12 @@
             color: black;
         }
 
-        /* زر إغلاق القائمة */
         .close-btn {
             position: absolute;
             top: 10px;
-            right: 20px;
+            left: 20px;
             font-size: 30px;
             cursor: pointer;
-        }
-
-        /* الفوتر */
-        footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
 
         /* نافذة تسجيل الدخول */
@@ -107,6 +89,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            text-align: right;
         }
 
         .login-popup input {
@@ -129,21 +112,30 @@
         .login-popup button:hover {
             background: #1e3c72;
         }
+
+        /* الفوتر */
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- الهيدر مع الشعار والصورة -->
+    <!-- الهيدر -->
     <header>
         <div id="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
-        <img id="profile-pic" src="https://via.placeholder.com/40" alt="صورة المطور">
         <i id="menu-btn" class="fa-solid fa-ellipsis-vertical"></i>
     </header>
 
     <!-- القائمة الجانبية -->
     <div id="sidebar" class="sidebar">
         <span class="close-btn" onclick="closeMenu()">×</span>
-        <a href="#" onclick="openLogin()">Login</a>
+        <a href="#" onclick="openLogin()">تسجيل الدخول</a>
         <a href="#">صفحة الأدمن</a>
         <p style="color: #ffcc00; text-align: center; margin-top: 50px;">🚧 الموقع تحت التطوير 🚧</p>
     </div>
@@ -198,4 +190,4 @@
     </script>
 
 </body>
-            </html>
+</html>
