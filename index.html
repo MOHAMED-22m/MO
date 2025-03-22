@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الاحترافي</title>
+    <title>موقعي الإبداعي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* إعدادات الصفحة */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Tajawal", sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: #0f3916;
             color: white;
             text-align: center;
             direction: rtl;
@@ -22,37 +22,45 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.7);
+            background: #082b12;
             padding: 15px 20px;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         /* الشعار */
         #logo {
             font-weight: bold;
-            color: #ffcc00;
+            color: #00ff88;
             font-size: 22px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #logo:hover {
+            transform: scale(1.1);
         }
 
         /* زر القائمة */
         #menu-btn {
             font-size: 24px;
             cursor: pointer;
+            color: white;
         }
 
         /* القائمة الجانبية */
         .sidebar {
             position: fixed;
             top: 0;
-            right: -250px;
-            width: 250px;
+            right: -270px;
+            width: 270px;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: #031d0c;
             padding-top: 60px;
-            transition: right 0.3s;
+            transition: right 0.4s ease-in-out;
+            box-shadow: -5px 0px 15px rgba(0, 255, 136, 0.3);
         }
 
         .sidebar a {
@@ -62,10 +70,11 @@
             text-decoration: none;
             font-size: 18px;
             transition: 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .sidebar a:hover {
-            background: #ffcc00;
+            background: #00ff88;
             color: black;
         }
 
@@ -75,6 +84,7 @@
             left: 20px;
             font-size: 30px;
             cursor: pointer;
+            color: white;
         }
 
         /* نافذة تسجيل الدخول */
@@ -84,42 +94,53 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: white;
+            background: rgba(0, 255, 136, 0.9);
             color: black;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 0px 20px rgba(0, 255, 136, 0.5);
             text-align: right;
+            width: 300px;
         }
 
         .login-popup input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 1px solid #031d0c;
             border-radius: 5px;
+            background: white;
         }
 
         .login-popup button {
             width: 100%;
             padding: 10px;
-            background: #2a5298;
+            background: #031d0c;
             color: white;
             border: none;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .login-popup button:hover {
-            background: #1e3c72;
+            background: #00ff88;
+            color: black;
         }
 
         /* الفوتر */
         footer {
-            background: rgba(0, 0, 0, 0.7);
+            background: #082b12;
             padding: 15px;
             position: fixed;
             bottom: 0;
             width: 100%;
+            text-align: center;
+            color: #00ff88;
+        }
+
+        /* تأثيرات ديناميكية */
+        .glow {
+            text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
         }
 
     </style>
@@ -128,7 +149,7 @@
 
     <!-- الهيدر -->
     <header>
-        <div id="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
+        <div id="logo" class="glow">#MÖ.ŚŮĻÏMÄŅ#</div>
         <i id="menu-btn" class="fa-solid fa-ellipsis-vertical"></i>
     </header>
 
@@ -137,13 +158,13 @@
         <span class="close-btn" onclick="closeMenu()">×</span>
         <a href="#" onclick="openLogin()">تسجيل الدخول</a>
         <a href="#">صفحة الأدمن</a>
-        <p style="color: #ffcc00; text-align: center; margin-top: 50px;">🚧 الموقع تحت التطوير 🚧</p>
+        <p style="color: #00ff88; text-align: center; margin-top: 50px;">🚧 الموقع تحت التطوير 🚧</p>
     </div>
 
     <!-- المحتوى الرئيسي -->
     <main>
-        <h2>مرحبًا بك في موقعي الاحترافي</h2>
-        <p>هذا موقع بتصميم عصري واحترافي، يمكنك تطويره وإضافة مميزات رائعة!</p>
+        <h2 class="glow">مرحبًا بك في موقعي الإبداعي</h2>
+        <p>تصميم حديث، أنيق، وديناميكي مع تأثيرات بصرية مميزة!</p>
     </main>
 
     <!-- نافذة تسجيل الدخول -->
@@ -167,7 +188,7 @@
 
         // إغلاق القائمة الجانبية
         function closeMenu() {
-            document.getElementById("sidebar").style.right = "-250px";
+            document.getElementById("sidebar").style.right = "-270px";
         }
 
         // فتح نافذة تسجيل الدخول
@@ -190,4 +211,4 @@
     </script>
 
 </body>
-</html>
+            </html>
