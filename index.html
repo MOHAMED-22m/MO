@@ -1,12 +1,13 @@
+
+Mohamed Ahmed
+Mohamed Ahmed Atala
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MO
-  </title>
+  <title>MO</title>
   <style>
-    /* الإعدادات العامة وإعادة تعيين بعض الأنماط */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -18,7 +19,6 @@
       background: #f0f0f0;
       direction: rtl;
     }
-    /* الهيدر */
     .header {
       background: #333;
       color: #fff;
@@ -34,42 +34,6 @@
       font-size: 1.8em;
       cursor: pointer;
     }
-    /* المحتوى الرئيسي */
-    .content {
-      padding: 60px 20px;
-      text-align: center;
-      min-height: calc(100vh - 120px);
-    }
-    .content h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    .content p {
-      font-size: 1.2em;
-      color: #666;
-    }
-    /* تذييل المطور */
-    .developer {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(255,255,255,0.9);
-      padding: 5px 10px;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      font-size: 0.9em;
-      color: #333;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .developer img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-left: 10px;
-    }
-    /* الشريط الجانبي */
     .sidebar {
       position: fixed;
       top: 0;
@@ -80,30 +44,12 @@
       color: #fff;
       transition: left 0.3s ease;
       padding: 20px;
+      overflow-y: auto;
       z-index: 500;
     }
     .sidebar.active {
       left: 0;
     }
-    .sidebar .close-btn {
-      cursor: pointer;
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      display: block;
-    }
-    .sidebar p {
-      margin-bottom: 20px;
-    }
-    .sidebar .login-btn {
-      width: 100%;
-      padding: 10px;
-      background: #666;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    /* نافذة تسجيل الدخول (مودال) */
     .modal {
       display: none;
       position: fixed;
@@ -127,204 +73,95 @@
       text-align: center;
       position: relative;
     }
-    .modal-content h2 {
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .modal-content p {
-      font-size: 0.9em;
-      color: #888;
-      margin-bottom: 15px;
-    }
-    .modal-content input {
-      width: 100%;
-      padding: 8px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .modal-content button {
-      width: 100%;
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: white;
       padding: 10px;
-      background: #333;
-      color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      width: 300px;
+    }
+    .search-box input {
       border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1em;
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      font-size: 16px;
     }
-   <title>مربع البحث</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-box input {
-            border: none;
-            padding: 10px;
-            width: 250px;
-            outline: none;
-            font-size: 16px;
-        }
-
-        .search-box button {
-            background: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-left: 10px;
-        }
-    
-    
-    
-    
-    
-    
-    
-    /* صفحة الادمن */
-    .admin-page {
-      display: none;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .admin-page.active {
-      display: block;
-    }
-    .admin-page h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-    .admin-page p {
-      color: #666;
-      margin-bottom: 20px;
-    }
-    .admin-page button {
-      padding: 10px 20px;
-      background: #333;
-      color: #fff;
+    .search-box button {
+      background: #007BFF;
+      color: white;
       border: none;
-      border-radius: 4px;
+      padding: 10px 15px;
       cursor: pointer;
-      font-size: 1em;
+      font-size: 16px;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+    .search-box button:hover {
+      background: #0056b3;
     }
   </style>
 </head>
 <body>
-  <!-- الهيدر -->
+
   <header class="header">
     <div class="logo">#MÖ.ŚŮĻÏMÄŅ#</div>
     <div class="three-dots" id="openSidebar">&#8942;</div>
   </header>
-  
-  <!-- الشريط الجانبي -->
+
   <nav class="sidebar" id="sidebar">
     <span class="close-btn" id="closeSidebar">&times; إغلاق</span>
     <p>هذا الموقع تحت التطوير</p>
-      <p>ممنوع ادخال اي معلومات متعلقه بالامان</p>
     <button class="login-btn" id="openLogin">تسجيل الدخول</button>
   </nav>
-  
-  <!-- الصفحة الرئيسية (الواجهة) -->
-  <main class="content" id="landingPage">
+
+  <main class="content">
     <h1>مرحبا بكم في عالم جديد</h1>
-    <p>االمطور :محمد سليمان.</p>
+    <p>المطور: محمد سليمان.</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="ابحث هنا...">
+      <button>بحث</button>
+    </div>
   </main>
-  
-  <!-- نافذة تسجيل الدخول -->
+
   <div class="modal" id="loginModal">
     <div class="modal-content">
-           تسجيل الدخول </h2>
-</h2>
+      <h2>تسجيل الدخول</h2>
       <p>الموقع تحت التجريب</p>
       <input type="text" id="username" placeholder="ادخل اسم المستخدم">
       <input type="password" id="password" placeholder="ادخل كلمة المرور">
-      <button id="loginButton">LOG IN</button>
+      <button id="loginButton">تسجيل الدخول</button>
     </div>
   </div>
-  
-  <!-- صفحة الادمن -->
-  <section class="admin-page" id="adminPage">
-    <h2>صفحة الموقع</h2>
-    <p>الموقع تحت التجريب وغير مكتمل</p>
-    <p>لم يتم الانتهاء من الموقع بعد</p>
-    <button id="backButton">عودة للواجهة</button>
-    <p style="margin-top:20px; font-size:0.9em; color:#a00;">
-    مربع نص
-    </p>
-  </section>
-  
-  <!-- تذييل المطور -->
+
   <footer class="developer">
     <span>المطور: Mohamed Suleiman</span>
-    <img src="https://via.placeholder.com/40" alt="صورة المطور">
   </footer>
-  
+
   <script>
-    // تعريف العناصر
     const sidebar = document.getElementById('sidebar');
     const openSidebar = document.getElementById('openSidebar');
     const closeSidebar = document.getElementById('closeSidebar');
-    const openLogin = document.getElementById('openLogin');
     const loginModal = document.getElementById('loginModal');
     const loginButton = document.getElementById('loginButton');
-    const landingPage = document.getElementById('landingPage');
-    const adminPage = document.getElementById('adminPage');
-    const backButton = document.getElementById('backButton');
 
-    // فتح الشريط الجانبي
-    openSidebar.addEventListener('click', () => {
-      sidebar.classList.add('active');
-    });
-    // إغلاق الشريط الجانبي
-    closeSidebar.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-    });
-    // فتح نافذة تسجيل الدخول من الشريط الجانبي
-    openLogin.addEventListener('click', () => {
-      loginModal.classList.add('active');
-      sidebar.classList.remove('active');
-    });
-    // معالجة عملية تسجيل الدخول
+    openSidebar.addEventListener('click', () => sidebar.classList.add('active'));
+    closeSidebar.addEventListener('click', () => sidebar.classList.remove('active'));
+
     loginButton.addEventListener('click', () => {
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
-      if(username && password){
-        // هنا يمكن إضافة عملية تحقق من البيانات لو أردت
+      alert('الرجاء إدخال اسم المستخدم وكلمة المرور.');
+      loginModal.classList.remove('active');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
         loginModal.classList.remove('active');
-        landingPage.style.display = 'none';
-        adminPage.classList.add('active');
-      } else {
-        alert('Enter the password, we will not steal from you');
       }
-    });
-    // عند النقر المزدوج (double-click) على صفحة الادمن، تظهر رسالة وتعود للواجهة
-    adminPage.addEventListener('dblclick', () => {
-      alert('لسه ما خلصتش الموقع');
-      adminPage.classList.remove('active');
-      landingPage.style.display = 'block';
-    });
-    // زر العودة للواجهة من صفحة الادمن
-    backButton.addEventListener('click', () => {
-      adminPage.classList.remove('active');
-      landingPage.style.display = 'block';
     });
   </script>
 </body>
-                                            </html>
+</html>
